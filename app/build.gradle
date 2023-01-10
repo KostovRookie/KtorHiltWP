@@ -66,12 +66,19 @@ dependencies {
 
     implementation 'androidx.activity:activity-ktx:1.6.1'
 
-   // implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03' нещо чупи
 
 
+    def room_version = "2.4.3"
 
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 
+    // To use Kotlin annotation processing tool (kapt)
+    kapt "androidx.room:room-compiler:$room_version"
+    // To use Kotlin Symbol Processing (KSP)
+//    ksp "androidx.room:room-compiler:$room_version"
 
+    implementation "io.ktor:ktor-client-okhttp:$ktor_version" // okhttp engine testing
     //KTor
     implementation 'io.ktor:ktor-client-core:2.2.2'
     implementation 'io.ktor:ktor-client-android:2.2.2'

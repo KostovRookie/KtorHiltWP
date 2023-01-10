@@ -32,8 +32,10 @@ class PostsAdapter(private val response: ArrayList<PostResponseItem>) :
 
 class PostViewHolder(private val binding: ItemViewPostBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bindData(response: java.util.ArrayList<PostResponseItem>, position: Int) {
-        binding.rvTitle.text = response[position].title.toString()
-        binding.rvBody.text = response[position].body
+     //   binding.
+         binding.rvTitle.text = response[position].title?.rendered.toString()
+       //   binding.rvBody.text = response[position].body
+     //   binding.rvTitle.text = response[position].title
     }
 
 }
