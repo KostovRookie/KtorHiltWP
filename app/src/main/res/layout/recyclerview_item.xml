@@ -12,13 +12,19 @@
         tools:src="@mipmap/ic_launcher" />
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
         android:id="@+id/text_view_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_toEndOf="@id/image_view_logo"
         android:textColor="@color/black"
-        tools:text="Restaurant Name" />
+        tools:text="name" />
 
     <TextView
         android:id="@+id/text_view_type"
@@ -37,5 +43,15 @@
         android:layout_marginStart="8dp"
         android:layout_toEndOf="@id/image_view_logo"
         tools:text="Address" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_address"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/image_view_logo"
+        tools:text="Title Post" />
 
 </RelativeLayout>

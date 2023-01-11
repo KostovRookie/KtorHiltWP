@@ -13,6 +13,7 @@ class DaoRepository @Inject constructor(
 ) {
     private val restaurantDao = db.repoDao()
 
+
     fun getPosts() = networkBoundResource(
         query = {
             restaurantDao.getAllPosts()

@@ -37,6 +37,7 @@ class RecyclerViewAdapter :
                 textViewName.text = postsModel.status
                 textViewType.text = postsModel.link
                 textViewAddress.text = postsModel.address
+                tvTitle.text = postsModel.title.rendered
             }
         }
     }

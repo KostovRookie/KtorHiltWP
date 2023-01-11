@@ -6,11 +6,19 @@ import kotlinx.serialization.Serializable
 
 
 @Serializable
+data class Title (
+    val rendered: String
+    )
+
+
+@Serializable
 @Entity(tableName = "stupid")
 data class PostsModel(
-    @PrimaryKey val id: Int,
-    val status: String,
-    val link: String,
-    val slug: String,
-    val address: String
+    @PrimaryKey val id: Int?=0,
+    val status: String?=null,
+    val link: String?=null,
+    val slug: String?=null,
+    val address: String?=null,
+    val title:Title
 )
+
