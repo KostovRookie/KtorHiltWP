@@ -2,7 +2,7 @@ package com.example.ktor.network.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.ktor.network.model.room.RestaurantDatabase
+import com.example.ktor.data.PravoDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,8 +15,8 @@ object AppModule {
     @Provides
     @Singleton
 
-    fun provideDatabase(app: Application) : RestaurantDatabase =
-        Room.databaseBuilder(app, RestaurantDatabase::class.java, "Restaurant Database")
+    fun provideDatabase(app: Application) : PravoDatabase =
+        Room.databaseBuilder(app, PravoDatabase::class.java, "Stupid Database")
             .build()
 
 
