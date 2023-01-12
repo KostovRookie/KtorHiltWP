@@ -1,9 +1,8 @@
 package com.example.ktor.utils
 
 import androidx.room.TypeConverter
-import com.example.ktor.data.Embedded
 import com.example.ktor.data.Title
-import com.example.ktor.data.WpFeaturedmedia
+import kotlinx.serialization.json.Json
 
 class SourceTypeConvertor {
     @TypeConverter
@@ -36,21 +35,25 @@ class SourceTypeConvertor {
 //        fun fromListOfStrings(listOfString: List<String>): String {
 //            return listOfString.joinToString(",")
 //        }
+//    @TypeConverter
+//    fun fromListOldToString(_embedded: List<WpFeaturedmedia>): String = _embedded.toString()
+//    @TypeConverter
+//    fun toListFromString(source_url: String): List<WpFeaturedmedia> {
+//        val result = ArrayList<WpFeaturedmedia>()
+//        val split =source_url.replace("[","").replace("]","").replace(" ","").split(",")
+//        for (n in split) {
+//            try {
+//                result.joinToString(",")
+//            } catch (_: Exception) {
+//
+//            }
+//        }
+//        return result
+//    }
+
     @TypeConverter
-    fun fromListOldToString(_embedded: List<WpFeaturedmedia>): String = _embedded.toString()
+    fun fromList(value : List<String>) = Json.encodeToString(value)
+
     @TypeConverter
-    fun toListFromString(source_url: String): List<WpFeaturedmedia> {
-        val result = ArrayList<WpFeaturedmedia>()
-        val split =source_url.replace("[","").replace("]","").replace(" ","").split(",")
-        for (n in split) {
-            try {
-                result.joinToString(",")
-            } catch (_: Exception) {
-
-            }
-        }
-        return result
-    }
-
-
+    fun toList(value: String) = Json.decodeFromString<List<String>>(value)
 }

@@ -57,11 +57,11 @@ class WordpressApi @Inject constructor() {
         // val httpResponse: HttpResponse =
         //https://pravnapomosht.bg/wp-json/wp/v2/posts
         return client.get("https://pravnapomosht.bg/wp-json/wp/v2/posts"){
-            setBody{
-                url {
-                    parameters.append("categories" , toString() )
-                }
-            }
+//            setBody{
+//                url {
+//                    parameters.append("categories" , toString() )
+//                }
+//            }
         }
 
 
