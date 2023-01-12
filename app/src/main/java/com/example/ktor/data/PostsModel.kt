@@ -18,7 +18,7 @@ data class PostsModel(
     val slug: String?=null,
     val address: String?=null,
     val title:Title,
-    val _embedded: Embedded
+  //  val _embedded: Embedded
 )
 @Serializable
 data class Title (

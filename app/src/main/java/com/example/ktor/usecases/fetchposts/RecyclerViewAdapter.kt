@@ -35,7 +35,7 @@ class RecyclerViewAdapter :
 
             binding.apply {
                 Glide.with(itemView)
-                    .load(postsModel._embedded)
+                    .load(postsModel.slug)
                     .into(imageViewLogo)
 
                 textViewName.text = postsModel.status

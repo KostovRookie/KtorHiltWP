@@ -1,6 +1,7 @@
 package com.example.ktor.network.ktorService
 
 import android.util.Log
+import com.example.ktor.data.PagingData
 import com.example.ktor.data.PostsModel
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -51,10 +52,44 @@ class WordpressApi @Inject constructor() {
     }
 
     suspend fun getWpApi(): List<PostsModel> {
+
+
         // val httpResponse: HttpResponse =
         //https://pravnapomosht.bg/wp-json/wp/v2/posts
-        return client.get("https://pravnapomosht.bg/wp-json/wp/v2/posts").body()
+        return client.get("https://pravnapomosht.bg/wp-json/wp/v2/posts"){
+            setBody{
+                url {
+                    parameters.append("categories" , toString() )
+                }
+            }
+        }
+
+
+            .body()
         // return val stringBody: String = httpResponse.body()
 
     }
+
+//    suspend fun getPostByCat():  List<PagingData> {
+//
+//        return client.get("https://pravnapomosht.bg/wp-json/wp/v2/posts") {
+//            setBody{
+//                url {
+//
+//                    parameters.append("categories",  "per_page")
+//                }
+//            }
+//        }.body()
+//
+//
+//
+//
+//
+//    }
+//    suspend fun getPostByCat(
+//        @Query("categories") categories:Int,
+//        @Query("page") page: Int,
+//        @Query("per_page") perPage: Int,
+//        @Query("_embed") embed: Boolean
+//    ) :List<Post>
 }
