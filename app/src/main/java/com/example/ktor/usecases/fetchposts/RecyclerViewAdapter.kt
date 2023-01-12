@@ -1,5 +1,7 @@
 package com.example.ktor.usecases.fetchposts
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -29,9 +31,11 @@ class RecyclerViewAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(postsModel: PostsModel) {
+
+
             binding.apply {
                 Glide.with(itemView)
-                    .load(postsModel.slug)
+                    .load(postsModel._embedded)
                     .into(imageViewLogo)
 
                 textViewName.text = postsModel.status

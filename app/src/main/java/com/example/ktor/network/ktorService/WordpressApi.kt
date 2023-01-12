@@ -53,7 +53,6 @@ class WordpressApi @Inject constructor() {
     suspend fun getWpApi(): List<PostsModel> {
         // val httpResponse: HttpResponse =
         //https://pravnapomosht.bg/wp-json/wp/v2/posts
-        //https://jsonplaceholder.typicode.com/posts
         return client.get("https://pravnapomosht.bg/wp-json/wp/v2/posts").body()
         // return val stringBody: String = httpResponse.body()
 

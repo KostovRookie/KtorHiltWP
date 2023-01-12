@@ -11,12 +11,12 @@ class DaoRepository @Inject constructor(
     private val api: WordpressApi,
     private val db: PravoDatabase
 ) {
-    private val restaurantDao = db.repoDao()
+    private val postsDao = db.repoDao()
 
 
     fun getPosts() = networkBoundResource(
         query = {
-            restaurantDao.getAllPosts()
+            postsDao.getAllPosts()
         },
         fetch = {
             delay(2000)
@@ -24,8 +24,8 @@ class DaoRepository @Inject constructor(
         },
         saveFetchResult = { restaurants ->
             db.withTransaction {
-                restaurantDao.deleteAllPosts()
-                restaurantDao.insertPosts(restaurants)
+                postsDao.deleteAllPosts()
+                postsDao.insertPosts(restaurants)
             }
         }
     )
