@@ -51,9 +51,9 @@ class SourceTypeConvertor {
 //        return result
 //    }
 
-    @TypeConverter
-    fun fromList(value : List<String>) = Json.encodeToString(value)
-
-    @TypeConverter
-    fun toList(value: String) = Json.decodeFromString<List<String>>(value)
+//    @TypeConverter
+//    fun fromList(value : List<String>) = Json.encodeToString(value)
+//
+//    @TypeConverter
+//    fun toList(value: String) = Json.decodeFromString<List<String>>(value)
 }

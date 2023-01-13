@@ -83,6 +83,7 @@ dependencies {
     // To use Kotlin Symbol Processing (KSP)
 //    ksp "androidx.room:room-compiler:$room_version"
 
+
     implementation "io.ktor:ktor-client-okhttp:$ktor_version" // okhttp engine testing
     //KTor
     implementation 'io.ktor:ktor-client-core:2.2.2'
@@ -94,6 +95,12 @@ dependencies {
     implementation "ch.qos.logback:logback-classic:1.4.5"
     implementation "io.ktor:ktor-client-logging:$ktor_version"
     implementation "io.ktor:ktor-client-cio:$ktor_version"
+
+    //retro
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1'  //in model serialization
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
 
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"

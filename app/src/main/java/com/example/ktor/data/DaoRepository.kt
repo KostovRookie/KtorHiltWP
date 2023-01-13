@@ -19,13 +19,14 @@ class DaoRepository @Inject constructor(
             postsDao.getAllPosts()
         },
         fetch = {
-            delay(2000)
+            delay(2000) // тестване
             api.getWpApi()
         },
-        saveFetchResult = { restaurants ->
+        saveFetchResult = { giveMePosts ->
             db.withTransaction {
                 postsDao.deleteAllPosts()
-                postsDao.insertPosts(restaurants)
+                postsDao.insertPosts(giveMePosts)
+                // foreach
             }
         }
     )
