@@ -1,7 +1,9 @@
 package com.example.ktor.data
 
+import androidx.lifecycle.LiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import androidx.paging.liveData
 import androidx.room.withTransaction
 import com.example.ktor.network.di.WordpressApiRetro
@@ -25,7 +27,7 @@ class DaoRepository @Inject constructor(
         config = PagingConfig(
             pageSize = 10, // затова ми крашва на категории под 10 поста, ама няма да го пипам
             maxSize = 100,
-            enablePlaceholders = false
+            enablePlaceholders = true
         ),
         pagingSourceFactory = {
             PostPaging (
@@ -53,4 +55,6 @@ class DaoRepository @Inject constructor(
             }
         }
     )
+
+
 }

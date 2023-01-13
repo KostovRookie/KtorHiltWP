@@ -13,6 +13,31 @@ import javax.inject.Inject
 class PostViewModel @Inject constructor(repository: DaoRepository) : ViewModel() {
 
     val postsRepo = repository.getPosts().asLiveData()
+  //  val catRepo = repository.getPostByCategory().asFlow()
+
+
+//    var tabLayoutPosition = 0
+//    private var localPostId = 0
+//
+//
+//    private val currentCategoryPosition = MutableLiveData(0)
+//
+//
+//    val posts = currentCategoryPosition.switchMap { categoryId ->
+//
+//        if (categories.value.isNotEmpty()) {
+//            categories.value[categoryId].id?.let {
+//                WPRepo.getPostByCategory(it)
+//                    .cachedIn(viewModelScope)
+//            }
+//
+//        } else {
+//            WPRepo.getPostByCategory(categoryId).cachedIn(viewModelScope)
+//
+//        }
+//
+//
+//    }
 
 //    private val currentCategoryPosition = MutableLiveData(0)
 //

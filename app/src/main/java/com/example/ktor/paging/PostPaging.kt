@@ -2,9 +2,11 @@ package com.example.ktor.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.bumptech.glide.load.HttpException
 import com.example.ktor.data.PostsModel
 import com.example.ktor.network.di.WordpressApiRetro
 import com.example.ktor.network.ktorService.WordpressApi
+import java.io.IOException
 
 
 //class MainPagingSource(
@@ -55,6 +57,8 @@ class PostPaging(
         // нямам достатъчно публикации, но работи с 40 статии
         val position = params.key ?: 1
 
+
+        return try {
         val posts = wordpressApi.getPostByCat(
             categories = categoryId,
             page = position,
@@ -62,13 +66,18 @@ class PostPaging(
             embed = true
         )
 
-        return LoadResult.Page(
+         LoadResult.Page(
             data = posts,
             prevKey = if (position == wordpressStartingPage) null else position - 1,
             nextKey = if (posts.isEmpty()) null else position + 1
         )
 
 
+    } catch (exception: IOException){
+        LoadResult.Error(exception)
+    } catch (exception: HttpException) {
+        LoadResult.Error(exception)
+    }
     }
 
     override fun getRefreshKey(state: PagingState<Int, PostsModel>): Int? {

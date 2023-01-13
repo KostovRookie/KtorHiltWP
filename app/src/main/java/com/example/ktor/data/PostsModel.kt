@@ -16,6 +16,7 @@ data class PostsModel(
     val slug: String? = null,
     val address: String? = null,
     val title: Title,
+    
     //   @Embedded
     // val _embedded: Embedd
 )
