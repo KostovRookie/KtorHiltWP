@@ -46,9 +46,9 @@ object RetrofitModule {
             .build()
 
 
-//    @Provides
-//    @Singleton
-//    fun provideWordpressApi(retrofit: Retrofit): WordpressApi =
-//        retrofit.create(WordpressApi::class.java)
+    @Provides
+    @Singleton
+    fun provideWordpressApi(retrofit: Retrofit): WordpressApiRetro =
+        retrofit.create(WordpressApiRetro::class.java)
 }
 

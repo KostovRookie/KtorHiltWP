@@ -1,7 +1,6 @@
 package com.example.ktor.network.ktorService
 
 import android.util.Log
-import com.example.ktor.data.PagingData
 import com.example.ktor.data.PostsModel
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -16,8 +15,6 @@ import kotlinx.serialization.json.Json
 import javax.inject.Inject
 
 class WordpressApi @Inject constructor() {
-
-
 
 
     private val client = HttpClient(CIO) {
@@ -56,20 +53,16 @@ class WordpressApi @Inject constructor() {
 
         // val httpResponse: HttpResponse =
         //https://pravnapomosht.bg/wp-json/wp/v2/posts
-        return client.get("https://pravnapomosht.bg/wp-json/wp/v2/posts"){
+        return client.get("https://pravnapomosht.bg/wp-json/wp/v2/posts") {
 //            setBody{
 //                url {
 //                    parameters.append("categories" , toString() )
 //                }
 //            }
         }
-
-
             .body()
         // return val stringBody: String = httpResponse.body()
-
     }
-
 //    suspend fun getPostByCat():  List<PagingData> {
 //
 //        return client.get("https://pravnapomosht.bg/wp-json/wp/v2/posts") {
@@ -80,16 +73,5 @@ class WordpressApi @Inject constructor() {
 //                }
 //            }
 //        }.body()
-//
-//
-//
-//
-//
 //    }
-//    suspend fun getPostByCat(
-//        @Query("categories") categories:Int,
-//        @Query("page") page: Int,
-//        @Query("per_page") perPage: Int,
-//        @Query("_embed") embed: Boolean
-//    ) :List<Post>
 }

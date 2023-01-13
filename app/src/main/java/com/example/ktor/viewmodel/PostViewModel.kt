@@ -1,16 +1,41 @@
 package com.example.ktor.viewmodel
 
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
+import com.example.ktor.data.Categories
 import com.example.ktor.data.DaoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 @HiltViewModel
 class PostViewModel @Inject constructor(repository: DaoRepository) : ViewModel() {
 
     val postsRepo = repository.getPosts().asLiveData()
+
+//    private val currentCategoryPosition = MutableLiveData(0)
+//
+//    val posts = currentCategoryPosition.switchMap { categoryId ->
+//
+//        if (categories.value.isNotEmpty()) {
+//            categories.value[categoryId].id?.let {
+//                repository.getPostByCategory(it)
+//                    .cachedIn(viewModelScope)
+//            }
+//
+//        } else {
+//            repository.getPostByCategory(categoryId).cachedIn(viewModelScope)
+//
+//        }
+//
+//    }
+//    private val _categoryList = MutableStateFlow<List<Categories>>(emptyList())
+//    val categories: StateFlow<List<Categories>> = _categoryList // лист по категории само
+//
+
+
+
 }
 
 

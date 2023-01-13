@@ -16,8 +16,8 @@ data class PostsModel(
     val slug: String? = null,
     val address: String? = null,
     val title: Title,
- //   @Embedded
-   // val _embedded: Embedd
+    //   @Embedded
+    // val _embedded: Embedd
 )
 
 @Serializable
@@ -42,9 +42,9 @@ data class WpFeaturedmedia(
 
 @Serializable
 data class Categories(
-    val count: Int?=0,
-    val id: Int?=0,
-    val name: String?=null,
-    val slug: String?=null
+    val count: Int? = 0,
+    val id: Int? = 0,
+    val name: String? = null,
+    val slug: String? = null
 )
 
