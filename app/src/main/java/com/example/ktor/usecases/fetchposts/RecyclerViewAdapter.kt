@@ -1,7 +1,5 @@
 package com.example.ktor.usecases.fetchposts
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -12,22 +10,22 @@ import com.example.ktor.data.PostsModel
 import com.example.ktor.databinding.RecyclerviewItemBinding
 
 class RecyclerViewAdapter :
-    ListAdapter<PostsModel, RecyclerViewAdapter.RestaurantViewHolder>(RestaurantComparator()) {
+    ListAdapter<PostsModel, RecyclerViewAdapter.PostsViewHolder>(PostsComparator()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsViewHolder {
         val binding =
             RecyclerviewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return RestaurantViewHolder(binding)
+        return PostsViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RestaurantViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PostsViewHolder, position: Int) {
         val currentItem = getItem(position)
         if (currentItem != null) {
             holder.bind(currentItem)
         }
     }
 
-    class RestaurantViewHolder(private val binding: RecyclerviewItemBinding) :
+    class PostsViewHolder(private val binding: RecyclerviewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(postsModel: PostsModel) {
@@ -35,7 +33,7 @@ class RecyclerViewAdapter :
 
             binding.apply {
                 Glide.with(itemView)
-                    .load(postsModel._embedded.wp_FeaturedMedia.get(0).source_url)
+                    .load(postsModel._embedded.wp_FeaturedMedia[0].source_url)
                     .into(imageViewLogo)
 
                 textViewName.text = postsModel.status
@@ -46,7 +44,7 @@ class RecyclerViewAdapter :
         }
     }
 
-    class RestaurantComparator : DiffUtil.ItemCallback<PostsModel>() {
+    class PostsComparator : DiffUtil.ItemCallback<PostsModel>() {
         override fun areItemsTheSame(oldItem: PostsModel, newItem: PostsModel) =
             oldItem.status == newItem.status
 
