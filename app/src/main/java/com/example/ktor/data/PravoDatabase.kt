@@ -3,6 +3,7 @@ package com.example.ktor.data
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.example.ktor.utils.ListTypeConvertor
 import com.example.ktor.utils.SourceTypeConvertor
 
 @Database(

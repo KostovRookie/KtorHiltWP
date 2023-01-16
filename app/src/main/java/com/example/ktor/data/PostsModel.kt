@@ -16,7 +16,8 @@ data class PostsModel(
     val slug: String? = null,
     val address: String? = null,
     val title: Title,
-    
+
+
        @Embedded
      val _embedded: Embedd  // проблем
 )
@@ -35,17 +36,17 @@ data class Embedd( // проблем2
 //{
 //    constructor() : this("")
 //}
-
+@Entity
 @Serializable
 data class WpFeaturedmedia( //файнъл проблем
     val source_url: String
 )
 
-@Serializable
-data class Categories(
-    val count: Int? = 0,
-    val id: Int? = 0,
-    val name: String? = null,
-    val slug: String? = null
-)
+//@Serializable
+//data class Categories(
+//    val count: Int? = 0,
+//    val id: Int? = 0,
+//    val name: String? = null,
+//    val slug: String? = null
+//)
 
