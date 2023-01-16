@@ -13,6 +13,9 @@ import javax.inject.Inject
 class PostViewModel @Inject constructor(repository: DaoRepository) : ViewModel() {
 
     val postsRepo = repository.getPosts().asLiveData()
+
+
+
   //  val catRepo = repository.getPostByCategory().asFlow()
 
 
@@ -71,8 +74,8 @@ class PostViewModel @Inject constructor(repository: DaoRepository) : ViewModel()
 //    val state : StateFlow<Resource<ArrayList<PostResponseItem>>>   = _postStateFlow
 //
 //    fun getPost() = viewModelScope.launch {
-//        restaurants.getPost().onStart {
-//            restaurants.value = Resource.Loading()
+//        postss.getPost().onStart {
+//            postss.value = Resource.Loading()
 //        }.catch {e->
 //            _postStateFlow.value = Resource.Error(null,e.message)
 //        }.collect {response->

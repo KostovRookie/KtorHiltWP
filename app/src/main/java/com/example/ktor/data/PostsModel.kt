@@ -17,8 +17,8 @@ data class PostsModel(
     val address: String? = null,
     val title: Title,
     
-    //   @Embedded
-    // val _embedded: Embedd
+       @Embedded
+     val _embedded: Embedd  // проблем
 )
 
 @Serializable
@@ -26,18 +26,18 @@ data class Title(
     val rendered: String
 )
 
-//@Serializable
-//data class Embedd(
-//    @Embedded
-//    @SerialName("wp:featuredmedia")
-//    val wp_FeaturedMedia: List<WpFeaturedmedia>
-//)
+@Serializable
+data class Embedd( // проблем2
+    @Embedded
+    @SerialName("wp:featuredmedia")
+    val wp_FeaturedMedia: List<WpFeaturedmedia>
+)
 //{
 //    constructor() : this("")
 //}
 
 @Serializable
-data class WpFeaturedmedia(
+data class WpFeaturedmedia( //файнъл проблем
     val source_url: String
 )
 

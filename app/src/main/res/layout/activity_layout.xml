@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".usecases.fetchposts.MainActivity">
+<com.google.android.material.appbar.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/appBarLayout">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
@@ -18,11 +22,12 @@
         app:tabTextColor="@color/black"
         tools:text="tabLaout here" />
 
-     <androidx.viewpager2.widget.ViewPager2
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:id="@+id/view_pager_2"
-         android:background="@color/white" />
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
+</com.google.android.material.appbar.AppBarLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
