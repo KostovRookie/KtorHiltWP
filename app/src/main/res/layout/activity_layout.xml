@@ -5,17 +5,18 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".usecases.fetchposts.MainActivity">
-    
+
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tab_layout"
-        app:tabIndicatorColor = "@color/purple_500"
-        app:tabSelectedTextColor = "@color/purple_700"
-        app:tabTextAppearance = "@style/TabLayoutTextStyle"
-        app:tabTextColor = "@color/black"
-        tools:text="tabLaout here"
-        android:visibility="visible"/>
+        android:contentDescription="@string/tab_text_2"
+        android:visibility="visible"
+        app:tabIndicatorColor="@color/purple_500"
+        app:tabSelectedTextColor="@color/purple_700"
+        app:tabTextAppearance="@style/TabLayoutTextStyle"
+        app:tabTextColor="@color/black"
+        tools:text="tabLaout here" />
 
      <androidx.viewpager2.widget.ViewPager2
          android:layout_width="match_parent"

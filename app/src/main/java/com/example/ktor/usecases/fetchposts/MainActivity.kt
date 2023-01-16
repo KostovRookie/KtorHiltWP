@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,6 +49,8 @@ class MainActivity : AppCompatActivity() {
         val adapterP = ViewPagerAdapter(supportFragmentManager, lifecycle)
         viewPager2.adapter = adapterP
         TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
+
+
             when (position) {
                 0 -> {
                     tab.text = "първи таб"
@@ -62,6 +65,23 @@ class MainActivity : AppCompatActivity() {
             }
 
         }.attach()
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                Toast.makeText(this@MainActivity, "Reselected${tab?.text}", Toast.LENGTH_SHORT)
+                    .show()
+
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                Toast.makeText(this@MainActivity, "Unselected${tab?.text}", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                Toast.makeText(this@MainActivity, "Selected${tab?.text}", Toast.LENGTH_SHORT).show()
+
+            }
+        })
 
 
 
