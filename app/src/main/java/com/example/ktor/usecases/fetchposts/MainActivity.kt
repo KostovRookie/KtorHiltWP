@@ -8,14 +8,19 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 import com.example.ktor.databinding.ActivityLayoutBinding
 import com.example.ktor.utils.ApiState
 import com.example.ktor.viewmodel.PostViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayout
 
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
 
     private val viewModel: PostViewModel by viewModels()
     private lateinit var scrollListener: RecyclerView.OnScrollListener
@@ -40,11 +45,12 @@ class MainActivity : AppCompatActivity() {
             recyclerView.apply {
                 adapter = recyclerViewAdapter
                 layoutManager = LinearLayoutManager(this@MainActivity)
-                addOnScrollListener(object : RecyclerView.OnScrollListener() {    // scroll listener test
+                addOnScrollListener(object :
+                    RecyclerView.OnScrollListener() {    // scroll listener test
                     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                         super.onScrolled(recyclerView, dx, dy)
                         if (!binding.recyclerView.canScrollVertically(1)) {
-                            if (page <= totalResults ) {
+                            if (page <= totalResults) {
                                 page += 1
                             }
                         }
@@ -63,7 +69,10 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    }
+
+
+
+}
 
 
 
