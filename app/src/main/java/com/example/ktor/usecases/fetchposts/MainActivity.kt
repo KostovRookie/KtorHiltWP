@@ -9,12 +9,16 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
+import com.example.ktor.R
 import com.example.ktor.databinding.ActivityLayoutBinding
+import com.example.ktor.ui.main.ViewPagerAdapter
 import com.example.ktor.utils.ApiState
 import com.example.ktor.viewmodel.PostViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayout.Tab
+import com.google.android.material.tabs.TabLayoutMediator
 
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,6 +42,26 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerViewAdapter = RecyclerViewAdapter()
 
+        val tabLayout = binding.tabLayout
+        val viewPager2 = binding.viewPager2
+
+        val adapterP = ViewPagerAdapter(supportFragmentManager, lifecycle)
+        viewPager2.adapter = adapterP
+        TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
+            when (position) {
+                0 -> {
+                    tab.text = "първи таб"
+                }
+                1 -> {
+                    tab.text = "втори таб"
+                }
+                2 -> {
+                    tab.text = "трети таб"
+                }
+
+            }
+
+        }.attach()
 
 
 
@@ -67,9 +91,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
     }
-
 
 
 }

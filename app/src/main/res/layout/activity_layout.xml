@@ -6,19 +6,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".usecases.fetchposts.MainActivity">
     
-    <TableLayout
+    <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tablayout"
+        android:id="@+id/tab_layout"
         app:tabIndicatorColor = "@color/purple_500"
         app:tabSelectedTextColor = "@color/purple_700"
         app:tabTextAppearance = "@style/TabLayoutTextStyle"
-        app:tabTextColor = "@color/black"/>
+        app:tabTextColor = "@color/black"
+        tools:text="tabLaout here"
+        android:visibility="visible"/>
 
-     <androidx.viewpager.widget.ViewPager
+     <androidx.viewpager2.widget.ViewPager2
          android:layout_width="match_parent"
          android:layout_height="match_parent"
-         android:id="@+id/viewPager"
+         android:id="@+id/view_pager_2"
          android:background="@color/white" />
 
 
