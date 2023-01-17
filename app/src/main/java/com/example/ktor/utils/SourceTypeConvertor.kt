@@ -1,6 +1,7 @@
 package com.example.ktor.utils
 
 import androidx.room.TypeConverter
+import com.example.ktor.data.Embedd
 import com.example.ktor.data.Title
 import com.example.ktor.data.WpFeaturedmedia
 import kotlinx.serialization.json.Json
@@ -16,15 +17,25 @@ class SourceTypeConvertor {
         return Title(rendered)
     }
 
-
     @TypeConverter
-    fun fromEmbed(_embedded: WpFeaturedmedia): String {
-        return _embedded.source_url
+    fun fromEmbedd(_embedded: Embedd): List<WpFeaturedmedia> {
+        return _embedded.wp_FeaturedMedia
     }
 
     @TypeConverter
-    fun toEmbed(source_url: String): WpFeaturedmedia {
-        return WpFeaturedmedia(source_url)
+    fun toEmbedd(wp_FeaturedMedia: String): WpFeaturedmedia {
+        return WpFeaturedmedia(wp_FeaturedMedia)
+    }
+
+
+    @TypeConverter
+    fun fromList(wpFeaturedmedia: List<WpFeaturedmedia>): String {
+        return wpFeaturedmedia.joinToString(",")
+    }
+
+    @TypeConverter
+    fun toList(data: String): List<String> {
+        return data.split(",")
     }
 
 
