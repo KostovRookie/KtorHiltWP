@@ -2,7 +2,6 @@ package com.example.ktor.viewmodel
 
 
 import androidx.lifecycle.*
-import com.example.ktor.data.Categories
 import com.example.ktor.data.DaoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -1,6 +1,5 @@
     package com.example.ktor.network.di
 
-import com.example.ktor.data.Categories
 import com.example.ktor.data.PostsModel
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -21,7 +20,7 @@ interface WordpressApiRetro {
         @Query("per_page") perPage: Int,
         @Query("_embed") embed: Boolean
     ) :List<PostsModel>
-    @GET("/wp-json/wp/v2/categories")
-    suspend fun getCategories():List<Categories>
+   // @GET("/wp-json/wp/v2/categories")
+ //   suspend fun getCategories():List<Categories>
 
 }

@@ -33,7 +33,7 @@ class RecyclerViewAdapter :
 
             binding.apply {
                 Glide.with(itemView)
-                    .load(postsModel._embedded.wp_FeaturedMedia[0].source_url)
+                    .load(postsModel._embedded?.wp_FeaturedMedia?.get(0)?.source_url)
                     .into(imageViewLogo)
 
                 textViewName.text = postsModel.status

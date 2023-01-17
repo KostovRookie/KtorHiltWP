@@ -1,9 +1,9 @@
 package com.example.ktor.data
 
+import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 
@@ -16,25 +16,15 @@ data class PostsModel(
     val slug: String? = null,
     val address: String? = null,
     val title: Title,
-    @Embedded
-    val _embedded: Embedd  // проблем
+  @Embedded
+    val _embedded: Embedd? = null  // проблем
 )
 
-@Serializable
-data class Embedd( // проблем2
-    @Embedded
-    @SerialName("wp:featuredmedia")
-    val wp_FeaturedMedia: List<WpFeaturedmedia>,
-   // var list: List<String> = emptyList()
-)
 
-//{
-//    constructor() : this("")
-//}
 @Entity
 @Serializable
 data class WpFeaturedmedia( //файнъл проблем
-    val source_url: String
+    val source_url: String?=null
 )
 
 
@@ -44,6 +34,13 @@ data class Title(
     val rendered: String
 )
 
+@Serializable
+data class Embedd(
+  //  @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "wp_media")
+    var wp_FeaturedMedia: List<WpFeaturedmedia>
+
+)
 
 //@Serializable
 //data class Categories(
