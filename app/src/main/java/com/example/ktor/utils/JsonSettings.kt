@@ -1,6 +1,5 @@
 package com.example.ktor.utils
 
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 
 val jsonDefaultInstance =

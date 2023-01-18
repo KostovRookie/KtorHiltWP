@@ -1,18 +1,10 @@
 package com.example.ktor.ui.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.core.view.isVisible
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.Fragment
 import com.example.ktor.R
-import com.example.ktor.databinding.ActivityLayoutBinding
 import com.example.ktor.databinding.FragmentThirdBinding
-import com.example.ktor.usecases.fetchposts.RecyclerViewAdapter
-import com.example.ktor.utils.ApiState
 
 
 class ThirdFragment : Fragment(R.layout.fragment_third) {
@@ -40,12 +32,6 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
 //    ): View? {
 //        // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_third, container, false)
-//
-//
-//
-//
-//
-//
 //    }
 
 

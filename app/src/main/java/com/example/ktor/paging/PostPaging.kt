@@ -5,7 +5,6 @@ import androidx.paging.PagingState
 import com.bumptech.glide.load.HttpException
 import com.example.ktor.data.PostsModel
 import com.example.ktor.network.di.WordpressApiRetro
-import com.example.ktor.network.ktorService.WordpressApi
 import java.io.IOException
 
 //class MainPagingSource(
@@ -42,8 +41,6 @@ import java.io.IOException
 //}
 
 
-
-
 private const val wordpressStartingPage = 1
 
 class PostPaging(
@@ -58,7 +55,7 @@ class PostPaging(
 
 
         return try {
-        val posts = wordpressApi.getPostByCat(
+        val posts = wordpressApi.getPagingInfo(
             categories = categoryId,
             page = position,
             perPage = params.loadSize,
@@ -82,7 +79,6 @@ class PostPaging(
     override fun getRefreshKey(state: PagingState<Int, PostsModel>): Int? {
         return state.anchorPosition
     }
-
 
 }
 

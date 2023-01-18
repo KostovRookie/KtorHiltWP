@@ -3,7 +3,6 @@
 import com.example.ktor.data.Categories
 import com.example.ktor.data.PostsModel
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface WordpressApiRetro {
@@ -15,7 +14,7 @@ interface WordpressApiRetro {
 
     @GET("/wp-json/wp/v2/posts")
     //зарязах стария плъг ин rest api и пробвах директно с wp-json
-    suspend fun getPostByCat(
+    suspend fun getPagingInfo(
         @Query("categories") categories:Int,
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,

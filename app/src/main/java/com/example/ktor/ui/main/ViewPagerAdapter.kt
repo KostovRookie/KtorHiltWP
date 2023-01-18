@@ -7,8 +7,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.ktor.R
 
 
-
-
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
     override fun getItemCount(): Int {
@@ -31,7 +29,6 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
             else -> {
                 Fragment()
             }
-
 
         }
     }

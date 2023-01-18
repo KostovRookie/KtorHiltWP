@@ -5,7 +5,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ktor.databinding.ActivityLayoutBinding
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: PostViewModel by viewModels()
     private val testViewModel: AllViewModel by viewModels()
 
-    //  private val postAdapter = RecyclerViewAdapter
+    //  private val postAdapter = PostListAdapter.RecyclerViewAdapter
     private lateinit var scrollListener: RecyclerView.OnScrollListener
     private val lastVisibleItemPosition: Int = 1
     private var currentPage = 1
@@ -85,7 +84,11 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-
+//        lifecycleScope.launch {
+//            testViewModel.flow.collectLatest { pagingData ->
+//                pagingAdapter.submitData(pagingData)
+//            }
+//        }
 
         binding.apply {
             recyclerView.apply {
@@ -104,8 +107,8 @@ class MainActivity : AppCompatActivity() {
                 })
             }
 
-            viewModel.postsRepo.observe(this@MainActivity) { result ->
-                recyclerViewAdapter.submitList(result.data)
+            viewModel.postsRepo.observe(this@MainActivity) { pagingData ->
+                recyclerViewAdapter.submitData(pagingData.data) //(result.data)
 
                 progressBar.isVisible =
                     result is ApiState.Loading && result.data.isNullOrEmpty()
