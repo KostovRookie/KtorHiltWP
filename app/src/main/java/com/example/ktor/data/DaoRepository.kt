@@ -37,7 +37,7 @@ class DaoRepository @Inject constructor(
         }
     ).liveData
 
-
+    suspend fun getCategories() = wordpressApi.getCategories()
 
     fun getPosts() = networkBoundResource(
         query = {

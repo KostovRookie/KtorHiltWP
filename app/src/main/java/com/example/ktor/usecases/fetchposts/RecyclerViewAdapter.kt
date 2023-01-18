@@ -9,8 +9,8 @@ import com.bumptech.glide.Glide
 import com.example.ktor.data.PostsModel
 import com.example.ktor.databinding.RecyclerviewItemBinding
 
-class RecyclerViewAdapter :
-    ListAdapter<PostsModel, RecyclerViewAdapter.PostsViewHolder>(PostsComparator()) {
+class RecyclerViewAdapter :ListAdapter<PostsModel, RecyclerViewAdapter.PostsViewHolder>(PostsComparator())
+{
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsViewHolder {
         val binding =

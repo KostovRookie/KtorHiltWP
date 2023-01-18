@@ -42,11 +42,12 @@ data class Embedd(
 
 )
 
-//@Serializable
-//data class Categories(
-//    val count: Int? = 0,
-//    val id: Int? = 0,
-//    val name: String? = null,
-//    val slug: String? = null
-//)
+@Serializable
+data class Categories(
+    val count: Int? = 0,
+    val id: Int? = 0,
+    val name: String? = null,
+    val slug: String? = null
+)
+
 

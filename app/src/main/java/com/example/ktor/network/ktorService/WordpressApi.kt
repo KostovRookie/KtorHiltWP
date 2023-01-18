@@ -20,6 +20,7 @@ class WordpressApi @Inject constructor() {
     private val client = HttpClient(CIO) {
         install(DefaultRequest) {
             headers.append("Content-type", "application/json")
+
         }
 
         install(ContentNegotiation) {
@@ -31,6 +32,7 @@ class WordpressApi @Inject constructor() {
             })
 
         }
+       // install(Seriali)  https://kotlinlang.org/docs/serialization.html#example-json-serialization
         install(Logging) {
             logger = object : Logger {
 
@@ -54,13 +56,13 @@ class WordpressApi @Inject constructor() {
         // val httpResponse: HttpResponse =
         //https://pravnapomosht.bg/wp-json/wp/v2/posts
         return client.get("https://pravnapomosht.bg/wp-json/wp/v2/posts") {
-//            setBody{
+
 //                url {
 //                    parameters.append("categories" , toString() )
 //                }
-//            }
-        }
-            .body()
+
+
+        }.body()
         // return val stringBody: String = httpResponse.body()
     }
 //    suspend fun getPostByCat():  List<PagingData> {
